@@ -16,7 +16,7 @@ pipeline {
             agent any
             steps {
 				sh 'pwd'
-				sh 'node -v && npm -v'
+				sh 'node18 -v && npm -v'
                 sh '''npm install --registry=https://registry.npm.taobao.org
 				'''
 				sh '''npm run build
