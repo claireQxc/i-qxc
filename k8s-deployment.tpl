@@ -1,7 +1,15 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {K8S_NAMESPACE}
+  labels:
+    app: {APP_NAME}
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {APP_NAME}-deployment
+  namespace: {K8S_NAMESPACE}
   labels:
     appname: {APP_NAME}
 spec:
@@ -27,6 +35,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: www-service
+  namespace: {K8S_NAMESPACE}
 spec:
   type: LoadBalancer
   selector:
@@ -41,6 +50,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: www-ingress
+  namespace: {K8S_NAMESPACE}
 spec:
   ingressClassName: nginx
   rules:
