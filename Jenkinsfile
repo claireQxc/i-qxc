@@ -14,9 +14,9 @@ pipeline {
         stage('Build') {
             when { expression { env.GIT_TAG != null } }
             agent any
-            steps {
+			node18("nodejs") {
                 sh 'npm install && npm run build'
-            }
+			}
         }
         stage('Docker Build') {
             when { 
