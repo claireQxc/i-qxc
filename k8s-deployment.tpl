@@ -26,7 +26,7 @@ spec:
       - name: {APP_NAME}
         image: {IMAGE_URL}:{IMAGE_TAG}  #镜像地址
         ports:
-          - containerPort: 40080
+          - containerPort: 80
       imagePullSecrets:        #使用的secret
        - name: registry-secret
 
@@ -43,7 +43,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 40080
+    targetPort: 80
 
 ---
 apiVersion: networking.k8s.io/v1
