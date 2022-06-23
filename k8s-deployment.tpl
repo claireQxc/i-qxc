@@ -44,7 +44,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: .i-qxc.com
+  - host: i-qxc.com
     http:
       paths:
       - path: "/"
