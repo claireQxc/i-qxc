@@ -9,7 +9,7 @@ pipeline {
         string(name: 'HARBOR_HOST', defaultValue: 'hub.i-qxc.com', description: 'harbor仓库地址')
         string(name: 'DOCKER_IMAGE', defaultValue: 'web/simple-web', description: 'docker镜像名')
         string(name: 'APP_NAME', defaultValue: 'simple-web', description: 'k8s中标签名')
-        string(name: 'K8S_NAMESPACE', defaultValue: 'jenkins', description: 'namespace')
+        string(name: 'K8S_NAMESPACE', defaultValue: 'default', description: 'namespace')
     }
     stages {
         stage('Build') {
