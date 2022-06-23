@@ -15,12 +15,14 @@ pipeline {
             when { expression { env.GIT_TAG != null } }
             agent any
             steps {
-				sh 'pwd'
-				sh 'node18 -v && npm -v'
-                sh '''npm install --registry=https://registry.npm.taobao.org
-				'''
-				sh '''npm run build
-				'''
+				nodejs(nodeJSInstallationName: 'NodeJS 14.11.0') {
+					sh 'pwd'
+					sh 'node18 -v && npm -v'
+					sh '''npm install --registry=https://registry.npm.taobao.org
+					'''
+					sh '''npm run build
+					'''
+				}
             }
         }
         stage('Docker Build') {
