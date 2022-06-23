@@ -31,7 +31,9 @@ pipeline {
                     expression { env.GIT_TAG != null }
                 }
             }
-            agent any
+            agent {
+				docker 'nginx'
+			}
             steps {
 				sh "/usr/bin/docker login -u ${HARBOR_CREDS_USR} -p ${HARBOR_CREDS_PSW} ${params.HARBOR_HOST}"
 				sh "/usr/bin/docker build -t ${params.HARBOR_HOST}/${params.DOCKER_IMAGE}:${GIT_TAG} ."
