@@ -17,7 +17,7 @@ pipeline {
             steps {
 				nodejs(nodeJSInstallationName: 'node18') {
 					sh 'pwd'
-					sh 'node18 -v && npm -v'
+					sh 'node -v && npm -v'
 					sh '''npm install --registry=https://registry.npm.taobao.org
 					'''
 					sh '''npm run build
