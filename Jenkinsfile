@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         HARBOR_CREDS = credentials('jenkins-harbor-creds')
-		K8S_CONFIG = credentials('k8s-config-admin')
+		K8S_CONFIG = credentials('jenkins-k8s-config')
         GIT_TAG = sh(returnStdout: true,script: 'git describe --tags --always').trim()
     }
     parameters {
@@ -50,7 +50,7 @@ pipeline {
             agent any
             steps {
                 sh "mkdir -p ~/.kube"
-                sh "echo ${K8S_CONFIG} > ~/.kube/config"
+                sh "echo ${K8S_CONFIG} | base64 -d > ~/.kube/config"
                 sh "sed -e 's#{IMAGE_URL}#${params.HARBOR_HOST}/${params.DOCKER_IMAGE}#g;s#{IMAGE_TAG}#${GIT_TAG}#g;s#{APP_NAME}#${params.APP_NAME}#g;s#{SPRING_PROFILE}#k8s-test#g' k8s-deployment.tpl > k8s-deployment.yml"
                 sh "kubectl apply -f k8s-deployment.yml --namespace=${params.K8S_NAMESPACE}"
             }
