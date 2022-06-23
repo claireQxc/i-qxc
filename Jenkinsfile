@@ -15,7 +15,7 @@ pipeline {
             when { expression { env.GIT_TAG != null } }
             agent any
             steps {
-				nodejs(nodeJSInstallationName: 'NodeJS 14.11.0') {
+				nodejs(nodeJSInstallationName: 'node18') {
 					sh 'pwd'
 					sh 'node18 -v && npm -v'
 					sh '''npm install --registry=https://registry.npm.taobao.org
