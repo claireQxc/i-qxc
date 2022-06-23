@@ -78,7 +78,9 @@
 ### 克隆到本地
 
 如果您更喜欢使用更干净的 git 历史记录手动执行此操作
-x
+
+
+Success
 ```bash
 npx degit antfu/vitesse-lite my-vitesse-app
 cd my-vitesse-app
