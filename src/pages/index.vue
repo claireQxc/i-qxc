@@ -4,7 +4,7 @@ const name = $ref('')
 const router = useRouter()
 const go = () => {
   if (name) {
-    location.href = `/${encodeURIComponent(name)}/`
+    // location.href = `/${encodeURIComponent(name)}/`
     // router.push(`/${encodeURIComponent(name)}/`)
     window.open(`/${encodeURIComponent(name)}/`, '_blank');
   }
