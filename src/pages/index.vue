@@ -4,7 +4,7 @@ const name = $ref('')
 const router = useRouter()
 const go = () => {
   if (name)
-    router.push(`/hi/${encodeURIComponent(name)}`)
+    router.push(`/${encodeURIComponent(name)}`)
 }
 </script>
 
