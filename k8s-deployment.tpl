@@ -37,7 +37,7 @@ metadata:
   name: www-service
   namespace: {K8S_NAMESPACE}
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     appname: {APP_NAME}
   ports:
