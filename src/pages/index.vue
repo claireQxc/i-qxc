@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const blocks = $ref('')
+import { HOME_PAGE_CARD } from '~/consts/index'
+console.log('HOME_PAGE_CARD---->', HOME_PAGE_CARD)
 const router = useRouter()
 const go = (path) => {
   if (path)
@@ -19,13 +20,20 @@ const go = (path) => {
       </button>
       i-qxc
     </div>
-    <div flex="~ gap5" justify-end>
-      <div icon-btn i-carbon-game-wireless text-xl @click="go('games')" />
-      <div icon-btn i-carbon-tool-kit text-xl @click="go('tools')" />
-      <div icon-btn i-carbon-document text-xl @click="go('docs')" />
-    </div>
   </div>
-  <div font-mono text-2xl>
-    BUILDING...
+  <div
+    flex="~ gap5"
+    justify-center
+    align-items-center
+    font-mono
+    text-2xl
+    flex-wrap
+  >
+    <card-button
+      v-for="card, index in HOME_PAGE_CARD"
+      :key="index"
+      :card="card"
+      @card-clicked="go(card.url)"
+    />
   </div>
 </template>
