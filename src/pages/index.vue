@@ -1,30 +1,19 @@
 <script setup lang="ts">
 import { HOME_PAGE_CARD } from '~/consts/index'
-console.log('HOME_PAGE_CARD---->', HOME_PAGE_CARD)
 const router = useRouter()
-const go = (path) => {
+const go = (path: string) => {
   if (path)
     router.push(`/${path}`)
 }
 </script>
 
 <template>
+  <Header />
   <div
-    flex="~" justify-between
-    border-b="1 gray-600/30"
-    hover:border-red-500
-  >
-    <div flex="~ gap2" font-mono text-xl hover:opacity-100 hover:text-red-500>
-      <button icon-btn @click="toggleDark()">
-        <div dark:i-carbon-moon i-carbon-sun />
-      </button>
-      i-qxc
-    </div>
-  </div>
-  <div
-    flex="~ gap5"
+    p10
+    h-50
+    flex="~ gap10"
     justify-center
-    align-items-center
     font-mono
     text-2xl
     flex-wrap
@@ -33,7 +22,11 @@ const go = (path) => {
       v-for="card, index in HOME_PAGE_CARD"
       :key="index"
       :card="card"
+      w-80
       @card-clicked="go(card.url)"
     />
+  </div>
+  <div p10 font-mono>
+    Much More fun is Building...
   </div>
 </template>

@@ -1,15 +1,13 @@
 <script setup lang="ts">
-const openTab = (url) => {
+const openTab = (url: string) => {
   if (url)
     window.open(url)
 }
 </script>
 
 <template>
-  <div font-mono>
-    GAMES
-  </div>
-  <div flex="~">
+  <Header />
+  <div p10 flex="~">
     <div block-btn w-60 @click="openTab('http://www.i-qxc.com/sweeper/')">
       <div flex="~ gap1" font-mono>
         <div i-mdi-mine />

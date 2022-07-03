@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CardButton } from '~/interfaces/card'
-const props = defineProps<{
+defineProps<{
   card: CardButton
 }>()
 const emit = defineEmits<{
@@ -14,7 +14,7 @@ function openTab(url: string) {
 
 <template>
   <div flex="~">
-    <div block-btn w-60 @click="openTab(card.url)">
+    <div block-btn justify-center @click="openTab(card.url)">
       <div flex="~ gap1" font-mono>
         <div :class="card.icon" />
         {{ card.title }}
