@@ -17,6 +17,7 @@ const go = (path: string) => {
     font-mono
     text-2xl
     flex-wrap
+    mb-10
   >
     <card-button
       v-for="card, index in HOME_PAGE_CARD"
